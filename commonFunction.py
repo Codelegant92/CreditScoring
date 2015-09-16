@@ -63,6 +63,23 @@ def read_data(data_filePath):
     dataLabel = data.label
     return dataFeature, dataLabel
 
+#function: read the file-australian.dat
+def readAustralianData(filePath):
+    f = open(filePath)
+    userProfile = []
+    singleProfile = []
+    for line in f.readlines():
+        singleProfile = line.split(' ')
+        if(singleProfile[-1] == '0\n'):
+            singleProfile[-1] = 0
+        else:
+            singleProfile[-1] = 1
+        singleProfile = [float(singleProfileItem) for singleProfileItem in singleProfile]
+        userProfile.append(singleProfile)
+    dataFeature = np.array(userProfile)[:, :-1]
+    dataLabel = np.array(userProfile)[:, -1]
+    return(dataFeature, dataLabel)
+
 #function: write a uniform program of cross validation-randomly divide the dataset into folders
 def crossValidation(featureMatrix, featureLabel, folder):
     instanceNum = featureMatrix.shape[0]
@@ -185,22 +202,7 @@ def condiEntropy(trainFeatureCol, trainLabel, uniqueClassList, uniqueFeatureValu
     #print(conditionalEntropy, featureEntropy)
     return(conditionalEntropy, featureEntropy)
 
-'function: read the file-australian.dat'
-def readAustralianData(filePath):
-    f = open(filePath)
-    userProfile = []
-    singleProfile = []
-    for line in f.readlines():
-        singleProfile = line.split(' ')
-        if(singleProfile[-1] == '0\n'):
-            singleProfile[-1] = 0
-        else:
-            singleProfile[-1] = 1
-        singleProfile = [float(singleProfileItem) for singleProfileItem in singleProfile]
-        userProfile.append(singleProfile)
-    dataFeature = np.array(userProfile)[:, :-1]
-    dataLabel = np.array(userProfile)[:, -1]
-    return(dataFeature, dataLabel)
+
 #0.47548875021634684, 2.4464393446710155          
 #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
 #dataFeature, dataLabel = read_data('./Data/german/german.data-numeric')
