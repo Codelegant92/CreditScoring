@@ -14,7 +14,7 @@ class dataset():
     def __init__(self, filename):
         self.file = filename
     
-    def loadData(self):
+    def loadGermanData(self):
         f = open(self.file)
         userProfile = []
         singleProfile = []
@@ -41,8 +41,25 @@ class dataset():
                 label.append(0)
             else:
                 label.append(1)
-        self.featureMatrix = dataMatrix[:, 0:m-1] #numpy.ndarray
-        self.label = np.array(label) #numpy.ndarray
+        featureMatrix = dataMatrix[:, 0:m-1] #numpy.ndarray
+        label = np.array(label) #numpy.ndarray
+        return(featureMatrix, label)
+
+    def loadAustralianData(self):
+        f = open(self.file)
+        userProfile = []
+        singleProfile = []
+        for line in f.readlines():
+            singleProfile = line.split(' ')
+            if(singleProfile[-1] == '0\n'):
+                singleProfile[-1] = 0
+            else:
+                singleProfile[-1] = 1
+            singleProfile = [float(singleProfileItem) for singleProfileItem in singleProfile]
+            userProfile.append(singleProfile)
+        featureMatrix = np.array(userProfile)[:, :-1]
+        label = np.array(userProfile)[:, -1]
+        return(featureMatrix, label)
 
     def dataForLIBSVM(self):
         m, n = self.featureMatrix.shape
@@ -55,30 +72,19 @@ class dataset():
             f.write(string)
         f.close()
         
-#function: read data from given files, parameter is the file path      
-def read_data(data_filePath):
+#function: read data from given files, parameter is the file path
+#for the label, 1 represents + and 0 represents -
+def read_Germandata(data_filePath):
     data = dataset(data_filePath)
-    data.loadData()
-    dataFeature = data.featureMatrix
-    dataLabel = data.label
-    return dataFeature, dataLabel
+    dataFeature, dataLabel = data.loadGermanData()
+    return(dataFeature, dataLabel) #both are ndarray type
 
 #function: read the file-australian.dat
-def readAustralianData(filePath):
-    f = open(filePath)
-    userProfile = []
-    singleProfile = []
-    for line in f.readlines():
-        singleProfile = line.split(' ')
-        if(singleProfile[-1] == '0\n'):
-            singleProfile[-1] = 0
-        else:
-            singleProfile[-1] = 1
-        singleProfile = [float(singleProfileItem) for singleProfileItem in singleProfile]
-        userProfile.append(singleProfile)
-    dataFeature = np.array(userProfile)[:, :-1]
-    dataLabel = np.array(userProfile)[:, -1]
-    return(dataFeature, dataLabel)
+#for the label, 1 represents + and 0 represents -
+def readAustralianData(data_filePath):
+    data = dataset(data_filePath)
+    dataFeature, dataLabel = data.loadAustralianData()
+    return(dataFeature, dataLabel) #both are ndarray type
 
 #function: write a uniform program of cross validation-randomly divide the dataset into folders
 def crossValidation(featureMatrix, featureLabel, folder):
@@ -87,6 +93,7 @@ def crossValidation(featureMatrix, featureLabel, folder):
     sequence = range(instanceNum)
     random.shuffle(sequence)
     randomFolders = [sequence[(n*i):(n*(i+1))] for i in xrange(folder)]
+    randomFolders.append(sequence[(n*i):])
     randomFeatureMatrix = [np.array([list(list(featureMatrix)[j]) for j in folderList]) for folderList in randomFolders]
     randomFeatureLabel = [np.array([list(featureLabel)[k] for k in folderList]) for folderList in randomFolders]
     return(randomFeatureMatrix, randomFeatureLabel)#randomFeatureMatrix:a list of ndarray matrix [array([[],[],...,[]]), array([[],...,[]]),...,array([[],...,[]])]
@@ -203,8 +210,14 @@ def condiEntropy(trainFeatureCol, trainLabel, uniqueClassList, uniqueFeatureValu
     return(conditionalEntropy, featureEntropy)
 
 
-#0.47548875021634684, 2.4464393446710155          
-#dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
-#dataFeature, dataLabel = read_data('./Data/german/german.data-numeric')
-#print(dataFeature)
-#print(dataLabel)
+'''
+dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
+print(dataFeature[0,:])
+'''
+
+dataFeature1, dataLabel1 = readAustralianData('./Data/Australia/australian.dat')
+#print(dataFeature1[689, :])
+
+a, b = crossValidation(dataFeature1[0:5, :], dataLabel1[0:5], 2)
+print(a)
+print(b)
