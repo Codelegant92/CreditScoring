@@ -182,24 +182,25 @@ def miniDis(featureMatrix):
         minimumDistance.append(min(distance))
     return(min(minimumDistance))
 
-folderNum = 5  
-k = 10     
-#dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')    #class=0 means good credit, class=1 means bad credit  
-dataFeature, dataLabel = read_data('./Data/german/german.data-numeric')
-trainFeature = dataFeature[:590, :]
-trainLabel = dataLabel[:590]
-testFeature = dataFeature[590:, :]
-testLabel = dataLabel[590:]
-#accu = distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, 150)
-#accu = locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 2**2, 10)
-#print(accu)
-#print(list(dataLabel).count(0), list(dataLabel).count(1))
-#print(knn(trainFeature, trainLabel, testFeature, testLabel, 10))
+if __name__ == "__main__":
+    folderNum = 5
+    k = 10
+    #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')    #class=0 means good credit, class=1 means bad credit
+    dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
+    trainFeature = dataFeature[:590, :]
+    trainLabel = dataLabel[:590]
+    testFeature = dataFeature[590:, :]
+    testLabel = dataLabel[590:]
+    #accu = distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, 150)
+    #accu = locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 2**2, 10)
+    #print(accu)
+    #print(list(dataLabel).count(0), list(dataLabel).count(1))
+    #print(knn(trainFeature, trainLabel, testFeature, testLabel, 10))
 
-accu1 = 0
-accu2 = 0
-for i in range(10):
-    accu1 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[0]
-    accu2 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[1]
-print(accu1/10.)
-print(accu2/10.)
+    accu1 = 0
+    accu2 = 0
+    for i in range(10):
+        accu1 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[0]
+        accu2 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[1]
+    print(accu1/10.)
+    print(accu2/10.)

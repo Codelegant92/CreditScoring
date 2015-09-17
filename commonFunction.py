@@ -90,10 +90,11 @@ def readAustralianData(data_filePath):
 def crossValidation(featureMatrix, featureLabel, folder):
     instanceNum = featureMatrix.shape[0]
     n = instanceNum / folder
+    folder -= 1
     sequence = range(instanceNum)
     random.shuffle(sequence)
     randomFolders = [sequence[(n*i):(n*(i+1))] for i in xrange(folder)]
-    randomFolders.append(sequence[(n*i):])
+    randomFolders.append(sequence[(n*folder):])
     randomFeatureMatrix = [np.array([list(list(featureMatrix)[j]) for j in folderList]) for folderList in randomFolders]
     randomFeatureLabel = [np.array([list(featureLabel)[k] for k in folderList]) for folderList in randomFolders]
     return(randomFeatureMatrix, randomFeatureLabel)#randomFeatureMatrix:a list of ndarray matrix [array([[],[],...,[]]), array([[],...,[]]),...,array([[],...,[]])]
@@ -209,15 +210,15 @@ def condiEntropy(trainFeatureCol, trainLabel, uniqueClassList, uniqueFeatureValu
     #print(conditionalEntropy, featureEntropy)
     return(conditionalEntropy, featureEntropy)
 
+if __name__ == "__main__":
+    '''
+    dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
+    print(dataFeature[0,:])
+    '''
 
-'''
-dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
-print(dataFeature[0,:])
-'''
+    dataFeature1, dataLabel1 = readAustralianData('./Data/Australia/australian.dat')
+    #print(dataFeature1[689, :])
 
-dataFeature1, dataLabel1 = readAustralianData('./Data/Australia/australian.dat')
-#print(dataFeature1[689, :])
-
-a, b = crossValidation(dataFeature1[0:5, :], dataLabel1[0:5], 2)
-print(a)
-print(b)
+    a, b = crossValidation(dataFeature1[0:5, :], dataLabel1[0:5], 2)
+    print(a)
+    print(b)
