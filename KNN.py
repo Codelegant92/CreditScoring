@@ -12,34 +12,10 @@ def knn(trainFeature, trainLabel, testFeature, testLabel, k):
         neigh.fit(trainFeature, trainLabel)
         predictedLabel.extend(list(neigh.predict(testSample)))
     #print(predictedLabel)
-    #return(list(predictedLabel == testLabel).count(True)*1.0/len(testLabel))
     diff = list(testLabel - predictedLabel)
     type_one_error = diff.count(1)/float(list(testLabel).count(1))
     type_two_error = diff.count(-1)/float(list(testLabel).count(0))
-    #return(list(testLabel).count(1), list(testLabel).count(0))
     return(1-type_one_error, 1-type_two_error)
-
-def crossValidation_knn(dataFeature, dataLabel, folderNum, k):
-    featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
-    cross_accuracy = []
-    for i in range(folderNum):
-        testFeature = featureFolder[i]
-        testLabel = labelFolder[i]
-        trainFeature = []
-        trainLabel = []
-        for j in range(folderNum):
-            if(j != i):
-                trainFeature.extend(list(featureFolder[j]))
-                trainLabel.extend(list(labelFolder[j]))
-        trainFeature = np.array(trainFeature)
-        trainLabel = np.array(trainLabel)
-        cross_accuracy.append(knn(trainFeature, trainLabel, testFeature, testLabel, k))
-    accu1 = 0
-    accu2 = 0
-    for j in range(len(cross_accuracy)):
-        accu1 += cross_accuracy[j][0]
-        accu2 += cross_accuracy[j][1]
-    return(accu1/float(j+1), accu2/float(j+1))        
 
 'function: distance weighted KNN-the more distance, the less weight'
 def distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, k):
@@ -187,6 +163,7 @@ if __name__ == "__main__":
     k = 10
     #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')    #class=0 means good credit, class=1 means bad credit
     dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
+    '''
     trainFeature = dataFeature[:590, :]
     trainLabel = dataLabel[:590]
     testFeature = dataFeature[590:, :]
@@ -196,11 +173,8 @@ if __name__ == "__main__":
     #print(accu)
     #print(list(dataLabel).count(0), list(dataLabel).count(1))
     #print(knn(trainFeature, trainLabel, testFeature, testLabel, 10))
+    '''
 
-    accu1 = 0
-    accu2 = 0
-    for i in range(10):
-        accu1 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[0]
-        accu2 += crossValidation_knn(dataFeature, dataLabel, folderNum, k)[1]
-    print(accu1/10.)
-    print(accu2/10.)
+    (accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, knn, k)
+    print(accu1)
+    print(accu2)

@@ -100,6 +100,30 @@ def crossValidation(featureMatrix, featureLabel, folder):
     return(randomFeatureMatrix, randomFeatureLabel)#randomFeatureMatrix:a list of ndarray matrix [array([[],[],...,[]]), array([[],...,[]]),...,array([[],...,[]])]
                                                    #randomFeatureLabel:a list of ndarray [array([]), ..., array([])]
 
+def crossValidationFunc(dataFeature, dataLabel, folderNum, func, *args):
+    featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
+    cross_accuracy = []
+    for i in range(folderNum):
+        testFeature = featureFolder[i]
+        testLabel = labelFolder[i]
+        trainFeature = []
+        trainLabel = []
+        for j in range(folderNum):
+            if(j != i):
+                trainFeature.extend(list(featureFolder[j]))
+                trainLabel.extend(list(labelFolder[j]))
+        trainFeature = np.array(trainFeature)
+        trainLabel = np.array(trainLabel)
+        cross_accuracy.append(func(trainFeature, trainLabel, testFeature, testLabel, *args))
+    accu1 = 0
+    accu2 = 0
+    print(args)
+    for j in range(len(cross_accuracy)):
+        accu1 += cross_accuracy[j][0]
+        accu2 += cross_accuracy[j][1]
+    return(accu1/float(j+1), accu2/float(j+1))
+
+
 def FScore(featureMatrix, featureLabel):
     posMatrix = []
     negMatrix = []
