@@ -114,10 +114,13 @@ def crossValidationFunc(dataFeature, dataLabel, folderNum, func, *args):
                 trainLabel.extend(list(labelFolder[j]))
         trainFeature = np.array(trainFeature)
         trainLabel = np.array(trainLabel)
-        cross_accuracy.append(func(trainFeature, trainLabel, testFeature, testLabel, *args))
+        predictedLabel = func(trainFeature, trainLabel, testFeature, *args)
+        diff = list(testLabel - predictedLabel)
+        type_one_error = diff.count(1)/float(list(testLabel).count(1))
+        type_two_error = diff.count(-1)/float(list(testLabel).count(0))
+        cross_accuracy.append((1-type_one_error, 1-type_two_error))
     accu1 = 0
     accu2 = 0
-    print(args)
     for j in range(len(cross_accuracy)):
         accu1 += cross_accuracy[j][0]
         accu2 += cross_accuracy[j][1]
@@ -180,7 +183,6 @@ def gainRatio(trainFeature, trainLabel):
     'calculate the conditional entropy'
     informationGainRatioList = []
     for i in range(featureNum):
-        #print(i)
         conditionalEnt, featureEnt = condiEntropy(trainFeature[:, i], trainLabel, uniqueClassList, uniqueFeatureValueList[i])
         informationGainRatioList.append((Ent-conditionalEnt) / featureEnt)
     return(np.array(informationGainRatioList))

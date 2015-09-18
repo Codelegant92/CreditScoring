@@ -5,20 +5,17 @@ import numpy as np
 from numpy import linalg as LA
 from math import exp
 
-def knn(trainFeature, trainLabel, testFeature, testLabel, k):
+def knn(trainFeature, trainLabel, testFeature, k):
     predictedLabel = []
     for testSample in testFeature:
         neigh = KNeighborsClassifier(n_neighbors=k)
         neigh.fit(trainFeature, trainLabel)
         predictedLabel.extend(list(neigh.predict(testSample)))
-    #print(predictedLabel)
-    diff = list(testLabel - predictedLabel)
-    type_one_error = diff.count(1)/float(list(testLabel).count(1))
-    type_two_error = diff.count(-1)/float(list(testLabel).count(0))
-    return(1-type_one_error, 1-type_two_error)
+    return(predictedLabel)
+
 
 'function: distance weighted KNN-the more distance, the less weight'
-def distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, k):
+def distanceWeightedKNN(trainFeature, trainLabel, testFeature, k):
     trainSampleNum = trainFeature.shape[0]
     predictedLabel = []
     for testFeatureItem in testFeature:
@@ -28,14 +25,11 @@ def distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, k):
         labels = np.zeros(k)
         i = 0
         while(i < trainSampleNum):
-            #print('+++calculate the %dth Euclidean distance+++' % (i))
+            #calculate the Euclidean distance between the testing item and the training items
             distance = LA.norm(abs(trainFeature[i] - testFeatureItem))
             distanceTupleList.append((trainLabel[i], distance))
             i += 1
-        #print(distanceTupleList)
         distanceTupleList = sorted(distanceTupleList, key = lambda x: x[1])
-        #print(distanceTupleList)
-        #print(distanceTupleList)
         if(distanceTupleList[0][1] != distanceTupleList[k-1][1]):
             nominator = distanceTupleList[k-1][1] - distanceTupleList[0][1]
             j = 0
@@ -44,8 +38,6 @@ def distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, k):
                 labels[j] = distanceTuple[0]
                 j += 1
         'this part will be used in binary classification'
-        #print(labels[:k])
-        #print(weight[:k])
         l = 0
         positiveWeight = 0
         negativeWeight = 0
@@ -58,18 +50,14 @@ def distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, k):
         if(positiveWeight > negativeWeight):
             predictedLabel.append(1)
         else:
-            predictedLabel.append(-1)
-        #print(positiveWeight)
-        #print(negativeWeight)
+            predictedLabel.append(0)
     predictedLabel = np.array(predictedLabel)
-    print(predictedLabel)
-    return(list(predictedLabel - testLabel).count(0)*1.0/(testLabel.shape[0]))
+    return(predictedLabel)
 
 'Euclidean distance weighted by gain ratio'
-def gainRatioDistanceKNN(trainFeature, trainLabel, testFeature, testLabel, k):
+def gainRatioDistanceKNN(trainFeature, trainLabel, testFeature, k):
     infoGainRatio = gainRatio(trainFeature, trainLabel) #numpy.ndarray
-    
-    print(infoGainRatio/sum(infoGainRatio))
+    #print(infoGainRatio/sum(infoGainRatio))
     predictedLabel = []
     trainSampleNum = trainFeature.shape[0]
     for testFeatureItem in testFeature:
@@ -81,16 +69,15 @@ def gainRatioDistanceKNN(trainFeature, trainLabel, testFeature, testLabel, k):
         distanceLabelTupleList = sorted(distanceLabelTupleList, key = lambda x: x[0])
         #print(distanceLabelTupleList)
         labels = [distanceLabelTuple[1] for distanceLabelTuple in distanceLabelTupleList]
-        if(labels.count(1) >= labels.count(-1)):
+        if(labels[:k].count(1) >= labels[:k].count(0)):
             predictedLabel.append(1)
         else:
-            predictedLabel.append(-1)
+            predictedLabel.append(0)
     predictedLabel = np.array(predictedLabel)
-    accu = list(predictedLabel == testLabel).count(True) / float(len(testLabel))
-    return(accu)
+    return(predictedLabel)
 
 'locally weighted averaging KNN'
-def locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, times, k):
+def locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, times, k):
     'part one: find the minimum distance between any two points of the training set'
     minimumDistance = miniDis(trainFeature)
     kernelWidth = minimumDistance * float(times)
@@ -107,10 +94,7 @@ def locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 
             distance = LA.norm(abs(trainFeature[i] - testFeatureItem))
             distanceTupleList.append((trainLabel[i], distance))
             i += 1
-        #print(distanceTupleList)
         distanceTupleList = sorted(distanceTupleList, key = lambda x: x[1])
-        #print(distanceTupleList)
-        #print(distanceTupleList)
         if(distanceTupleList[0][1] != distanceTupleList[k-1][1]):
             nominator = kernelWidth ** 2
             j = 0
@@ -119,8 +103,6 @@ def locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 
                 labels[j] = distanceTuple[0]
                 j += 1
         'this part will be used in binary classification'
-        #print(labels[:k])
-        #print(weight[:k])
         l = 0
         positiveWeight = 0
         negativeWeight = 0
@@ -133,12 +115,9 @@ def locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 
         if(positiveWeight > negativeWeight):
             predictedLabel.append(1)
         else:
-            predictedLabel.append(-1)
-        #print(positiveWeight)
-        #print(negativeWeight)
+            predictedLabel.append(0)
     predictedLabel = np.array(predictedLabel)
-    print(predictedLabel)
-    return(list(predictedLabel - testLabel).count(0)*1.0/(testLabel.shape[0]))
+    return(predictedLabel)
     
 
 'find the minimum distance between any two points of the training set'
@@ -159,22 +138,11 @@ def miniDis(featureMatrix):
     return(min(minimumDistance))
 
 if __name__ == "__main__":
-    folderNum = 5
+    folderNum = 2
     k = 10
+    times = 2
     #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')    #class=0 means good credit, class=1 means bad credit
-    dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
-    '''
-    trainFeature = dataFeature[:590, :]
-    trainLabel = dataLabel[:590]
-    testFeature = dataFeature[590:, :]
-    testLabel = dataLabel[590:]
-    #accu = distanceWeightedKNN(trainFeature, trainLabel, testFeature, testLabel, 150)
-    #accu = locallyWeightedAverageKNN(trainFeature, trainLabel, testFeature, testLabel, 2**2, 10)
-    #print(accu)
-    #print(list(dataLabel).count(0), list(dataLabel).count(1))
-    #print(knn(trainFeature, trainLabel, testFeature, testLabel, 10))
-    '''
-
+    dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
     (accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, knn, k)
     print(accu1)
     print(accu2)

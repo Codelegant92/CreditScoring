@@ -16,13 +16,16 @@ def decision_Tree(trainFeature, trainLabel, testFeature, testLabel):
     graph = pydot.graph_from_dot_data(dot_data.getvalue())
     graph.write_pdf('./Data/test.pdf')
     '''
+
     #return(list(predictedLabel == testLabel).count(True)*1.0/len(testLabel))
     diff = list(testLabel - predictedLabel)
     type_one_error = diff.count(1)/float(list(testLabel).count(1))
     type_two_error = diff.count(-1)/float(list(testLabel).count(0))
     return(1-type_one_error, 1-type_two_error)
 
-
+    '''
+    return(predictedLabel)
+    '''
 def crossValidation_decisionTree(dataFeature, dataLabel, folderNum):
     featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
     cross_accuracy = []
@@ -59,6 +62,7 @@ print(list(set(a)))
 accu1, accu2 = decision_Tree(trainFeature, trainLabel, testFeature, testLabel)
 print(accu1, accu2)
 '''
+
 accu1 = 0
 accu2 = 0
 for i in range(10):
@@ -66,4 +70,12 @@ for i in range(10):
     accu2 += crossValidation_decisionTree(dataFeature, dataLabel, folderNum)[1]
 print(accu1/10.)
 print(accu2/10.)
+print(accu1/20. + accu2/20.)
+
+'''
+(accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, decision_Tree)
+print(accu1)
+print(accu2)
+print((accu1 + accu2)/2.0)
+'''
 # print(np.array(accu).mean(0))
