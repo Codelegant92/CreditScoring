@@ -74,7 +74,7 @@ class dataset():
         
 #function: read data from given files, parameter is the file path
 #for the label, 1 represents + and 0 represents -
-def read_Germandata(data_filePath):
+def read_GermanData(data_filePath):
     data = dataset(data_filePath)
     dataFeature, dataLabel = data.loadGermanData()
     return(dataFeature, dataLabel) #both are ndarray type

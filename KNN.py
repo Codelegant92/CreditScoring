@@ -141,7 +141,7 @@ if __name__ == "__main__":
     folderNum = 2
     k = 10
     times = 2
-    #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')    #class=0 means good credit, class=1 means bad credit
+    #dataFeature, dataLabel = readGermanData('./Data/german/german.data-numeric')    #class=0 means good credit, class=1 means bad credit
     dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
     (accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, knn, k)
     print(accu1)
