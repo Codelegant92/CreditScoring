@@ -87,22 +87,22 @@ def readAustralianData(data_filePath):
     return(dataFeature, dataLabel) #both are ndarray type
 
 #function: write a uniform program of cross validation-randomly divide the dataset into folders
-def crossValidation(featureMatrix, featureLabel, folder):
+def crossValidation(featureMatrix, featureLabel, folderNum):
     instanceNum = featureMatrix.shape[0]
-    n = instanceNum / folder
-    folder -= 1
+    n = instanceNum / folderNum
+    folderNum -= 1
     sequence = range(instanceNum)
     random.shuffle(sequence)
-    randomFolders = [sequence[(n*i):(n*(i+1))] for i in xrange(folder)]
-    randomFolders.append(sequence[(n*folder):])
+    randomFolders = [sequence[(n*i):(n*(i+1))] for i in xrange(folderNum)]
+    randomFolders.append(sequence[(n*folderNum):])
     randomFeatureMatrix = [np.array([list(list(featureMatrix)[j]) for j in folderList]) for folderList in randomFolders]
     randomFeatureLabel = [np.array([list(featureLabel)[k] for k in folderList]) for folderList in randomFolders]
     return(randomFeatureMatrix, randomFeatureLabel)#randomFeatureMatrix:a list of ndarray matrix [array([[],[],...,[]]), array([[],...,[]]),...,array([[],...,[]])]
                                                    #randomFeatureLabel:a list of ndarray [array([]), ..., array([])]
 
-def crossValidationFunc(dataFeature, dataLabel, folderNum, func, *args):
-    featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
+def crossValidationFunc(featureFolder, labelFolder, func, *args):
     cross_accuracy = []
+    folderNum = len(labelFolder)
     for i in range(folderNum):
         testFeature = featureFolder[i]
         testLabel = labelFolder[i]
@@ -114,11 +114,17 @@ def crossValidationFunc(dataFeature, dataLabel, folderNum, func, *args):
                 trainLabel.extend(list(labelFolder[j]))
         trainFeature = np.array(trainFeature)
         trainLabel = np.array(trainLabel)
+        print("=====CV %d==========") % (i+1)
+        print("Training samples:")
+        print("Positive: %d, Negative: %d") % (list(trainLabel).count(1), list(trainLabel).count(0))
+        print("Testing samples:")
+        print("Positive: %d, Negative: %d") % (list(testLabel).count(1), list(testLabel).count(0))
         predictedLabel = func(trainFeature, trainLabel, testFeature, *args)
         diff = list(testLabel - predictedLabel)
         type_one_error = diff.count(1)/float(list(testLabel).count(1))
         type_two_error = diff.count(-1)/float(list(testLabel).count(0))
         cross_accuracy.append((1-type_one_error, 1-type_two_error))
+    print(cross_accuracy)
     accu1 = 0
     accu2 = 0
     for j in range(len(cross_accuracy)):

@@ -23,7 +23,6 @@ if __name__ == "__main__":
     folderNum = 5
     dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
     #dataFeature, dataLabel = read_GermanData('./Data/german/german.data-numeric')
-    (accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, decision_Tree)
-    print(accu1)
-    print(accu2)
-    print((accu1 + accu2)/2.0)
+    featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
+    (accu1, accu2) = crossValidationFunc(featureFolder, labelFolder ,decision_Tree)
+    print(accu1, accu2)

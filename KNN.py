@@ -138,11 +138,11 @@ def miniDis(featureMatrix):
     return(min(minimumDistance))
 
 if __name__ == "__main__":
-    folderNum = 2
+    folderNum = 5
     k = 10
     times = 2
-    #dataFeature, dataLabel = readGermanData('./Data/german/german.data-numeric')    #class=0 means good credit, class=1 means bad credit
+    #dataFeature, dataLabel = read_GermanData('./Data/german/german.data-numeric')    #class=0 means good credit, class=1 means bad credit
     dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
-    (accu1, accu2) = crossValidationFunc(dataFeature, dataLabel, folderNum, knn, k)
-    print(accu1)
-    print(accu2)
+    featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
+    (accu1, accu2) = crossValidationFunc(featureFolder, labelFolder, knn, k)
+    print(accu1, accu2)

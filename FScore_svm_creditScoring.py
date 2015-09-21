@@ -18,7 +18,7 @@ def fScore_SVM(dataFeature, dataLabel, fScore, K):
     selected_dataLabel = dataLabel
     svm_GridSearch_creditScore(selected_dataFeature, selected_dataLabel)
 
-dataFeature, dataLabel = read_data('./Data/german/german.data-numeric')
+dataFeature, dataLabel = read_GermanData('./Data/german/german.data-numeric')
 fScore = FScore(dataFeature, dataLabel)
 
 K = 24

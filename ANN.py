@@ -37,7 +37,7 @@ def ANN(trainFeature, trainLabel, testFeature, testLabel, netStructure, para_rat
     return(errorList) 
 
 
-dataFeature, dataLabel = read_data('./Data/german/german.data-numeric')
+dataFeature, dataLabel = read_GermanData('./Data/german/german.data-numeric')
 trainFeature = dataFeature[:800, :]
 print(trainFeature.shape)
 trainLabel = dataLabel[:800]
