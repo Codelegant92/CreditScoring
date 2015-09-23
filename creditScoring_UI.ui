@@ -78,529 +78,6 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>60</y>
-     <width>401</width>
-     <height>588</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="label_17">
-        <property name="text">
-         <string>13年龄</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_4"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_13">
-        <property name="text">
-         <string>9个人状态</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_2">
-        <item>
-         <property name="text">
-          <string>男性：离婚/分居</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>女性：离婚/分居/已婚</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>男性：单身</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>男性：已婚/丧偶</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>女性：单身</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_23">
-        <property name="text">
-         <string>19电话验证</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_3">
-        <item>
-         <property name="text">
-          <string>无</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>有且用本名注册</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_21">
-        <property name="text">
-         <string>17工作性质</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_4">
-        <item>
-         <property name="text">
-          <string>无业/无技能-非常住人口</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>无技能-常住人口</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>有技能从业者/公务员</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>管理者/创业者/高级职员/政府官员</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string>7工作年限</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_5">
-        <item>
-         <property name="text">
-          <string>无业人员</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>少于1年</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>1年-4年</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>4年-7年</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>超过7年</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_24">
-        <property name="text">
-         <string>20是否外籍</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_6">
-        <item>
-         <property name="text">
-          <string>是</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>否</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_19">
-        <property name="text">
-         <string>15住房性质</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_7">
-        <item>
-         <property name="text">
-          <string>租房</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>自己的</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>免费居住</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_15">
-        <property name="text">
-         <string>11居住时间</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_3"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_16">
-        <property name="text">
-         <string>12个人财产</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_8">
-        <item>
-         <property name="text">
-          <string>不动产</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>building society savings agreement/life insurance</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>汽车或其他（银行存款不算）</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>不知/没有</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_8">
-        <property name="text">
-         <string>4贷款目的</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_9">
-        <item>
-         <property name="text">
-          <string>新车</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>二手车</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>家具</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>广播/电视</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>家用电器</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>修理</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>教育</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>培训</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>商业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>其他</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_22">
-        <property name="text">
-         <string>18供养人口</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_6"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>1支票账户</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_10">
-        <item>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>0-200DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>&gt;=200DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>无</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>2支票有效期</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_10">
-        <property name="text">
-         <string>6账户存款</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_11">
-        <item>
-         <property name="text">
-          <string>&lt;100DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>100-500DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>500-1000DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>&gt;=1000DM</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>不知/无</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>3信用历史</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_12">
-        <item>
-         <property name="text">
-          <string>无信用卡/均已还清</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>本行的信用卡均已还清</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>现有的信用卡均已还清</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>有逾期还款记录</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>重要账户不在本行</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>5信用卡欠款</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_2"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_20">
-        <property name="text">
-         <string>16本行信用卡数量</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_5"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_14">
-        <property name="text">
-         <string>10其他债务人/担保人</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_13">
-        <item>
-         <property name="text">
-          <string>无</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>联合申请人</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>担保人</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_18">
-        <property name="text">
-         <string>14其他分期付款计划</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="comboBox_14">
-        <item>
-         <property name="text">
-          <string>银行</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>商店</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>无</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_12">
-        <property name="text">
-         <string>8分期付款占可支配收入的比重</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>60</y>
-     <width>78</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -662,10 +139,829 @@
     <string>刷新</string>
    </property>
   </widget>
+  <widget class="KUrlComboRequester" name="kurlcomborequester">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>60</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>416</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>15住房性质</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>62</y>
+     <width>47</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>13年龄</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>147</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户的性别及婚姻状况</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>男性：离婚/分居</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>女性：离婚/分居/已婚</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>男性：单身</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>男性：已婚/丧偶</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>女性：单身</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_4">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>88</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户的年龄</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>121</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>9个人状态</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>180</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>19电话验证</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_3">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>206</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户是否有电话验证</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>无</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>有且用本名注册</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>475</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>11居住时间</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>239</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>17工作性质</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_4">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>265</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户的工作性质</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>无业/无技能-非常住人口</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>无技能-常住人口</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>有技能从业者/公务员</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>管理者/创业者/高级职员/政府官员</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>298</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>7工作年限</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_5">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>324</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户在当前单位的工作年限</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>无业人员</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>少于1年</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1年-4年</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4年-7年</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>超过7年</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>357</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>20是否外籍</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_6">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>383</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户是否为外国籍</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>是</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>否</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_7">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>442</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户当前住房的性质</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>租房</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>自己的</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>免费居住</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_3">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>501</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户在当前房子的居住时间</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>534</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>12个人财产</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_8">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>560</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户个人拥有的财产情况</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>不动产</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>building society savings agreement/life insurance</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>汽车或其他（银行存款不算）</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>不知/没有</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>593</y>
+     <width>67</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>4贷款目的</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_9">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>619</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户的贷款目的</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>新车</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>二手车</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>家具</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>广播/电视</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>家用电器</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>修理</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>教育</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>培训</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>商业</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>其他</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>416</y>
+     <width>120</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>16本行信用卡数量</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>62</y>
+     <width>76</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>18供养人口</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_10">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>147</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户拥有的支票账户的金额</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>0-200DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>&gt;=200DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>无</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_6">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>88</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户当前所要供养的人数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>121</y>
+     <width>67</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1支票账户</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>180</y>
+     <width>82</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>2支票有效期</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>206</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户支票的有效期</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>475</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10其他债务人/担保人</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>239</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>6账户存款</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_11">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>265</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户拥有的存款</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>&lt;100DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>100-500DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>500-1000DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>&gt;=1000DM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>不知/无</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>298</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>3信用历史</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_12">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>324</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户使用信用卡的历史</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>无信用卡/均已还清</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>本行的信用卡均已还清</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>现有的信用卡均已还清</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>有逾期还款记录</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>重要账户不在本行</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>357</y>
+     <width>83</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>5信用卡欠款</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_2">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>383</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户信用卡欠款的数目</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_5">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>442</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户在本行开设的信用卡账户数量</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_13">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>501</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户是否拥有其他债务人或担保人</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>无</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>联合申请人</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>担保人</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>534</y>
+     <width>134</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>14其他分期付款计划</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_14">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>560</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户是否有其他分期付款的项目</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>银行</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>商店</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>无</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>593</y>
+     <width>184</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>8分期付款占可支配收入的比重</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="doubleSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>619</y>
+     <width>181</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>本次贷款的每月分期付款占用户可支配收入的百分比</string>
+   </property>
+  </widget>
  </widget>
- <tabstops>
-  <tabstop>comboBox</tabstop>
- </tabstops>
+ <customwidgets>
+  <customwidget>
+   <class>KUrlComboRequester</class>
+   <extends>KUrlRequester</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
