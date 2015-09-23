@@ -21,8 +21,9 @@ def decision_Tree(trainFeature, trainLabel, testFeature):
 
 if __name__ == "__main__":
     folderNum = 5
-    dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
+    #dataFeature, dataLabel = readAustralianData('./Data/Australia/australian.dat')
     #dataFeature, dataLabel = read_GermanData('./Data/german/german.data-numeric')
+    dataFeature, dataLabel = read_GermanData20('./Data/german/german.data')
     featureFolder, labelFolder = crossValidation(dataFeature, dataLabel, folderNum)
     (accu1, accu2) = crossValidationFunc(featureFolder, labelFolder ,decision_Tree)
     print(accu1, accu2)

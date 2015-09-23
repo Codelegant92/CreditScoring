@@ -139,14 +139,17 @@
     <string>刷新</string>
    </property>
   </widget>
-  <widget class="KUrlComboRequester" name="kurlcomborequester">
+  <widget class="QSpinBox" name="spinBox_4">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>60</y>
-     <width>111</width>
+     <x>42</x>
+     <y>88</y>
+     <width>181</width>
      <height>27</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>用户的年龄</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_19">
@@ -212,19 +215,6 @@
      <string>女性：单身</string>
     </property>
    </item>
-  </widget>
-  <widget class="QSpinBox" name="spinBox_4">
-   <property name="geometry">
-    <rect>
-     <x>42</x>
-     <y>88</y>
-     <width>181</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>用户的年龄</string>
-   </property>
   </widget>
   <widget class="QLabel" name="label_13">
    <property name="geometry">
@@ -949,19 +939,387 @@
     <string>本次贷款的每月分期付款占用户可支配收入的百分比</string>
    </property>
   </widget>
+  <zorder>spinBox_4</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>line</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>comboBox_15</zorder>
+  <zorder>textBrowser</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KUrlComboRequester</class>
-   <extends>KUrlRequester</extends>
-   <header>kurlrequester.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KUrlRequester</class>
-   <extends>QFrame</extends>
-   <header>kurlrequester.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>spinBox_4</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>571</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_2</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>550</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_3</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>532</x>
+     <y>355</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_4</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>559</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_5</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>596</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_6</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>190</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>526</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_7</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>533</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_3</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>565</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_8</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>568</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_9</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>161</x>
+     <y>629</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>521</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_6</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>372</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>589</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_11</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>575</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>355</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_11</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_12</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>536</x>
+     <y>355</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_2</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>408</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>556</x>
+     <y>357</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_5</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>317</x>
+     <y>457</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>538</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_13</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>521</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_14</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>395</x>
+     <y>569</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>561</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinBox</sender>
+   <signal>editingFinished()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>396</x>
+     <y>628</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>550</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_15</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>535</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>577</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>textBrowser</receiver>
+   <slot>forward()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>611</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>622</x>
+     <y>440</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_10</sender>
+   <signal>activated(int)</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

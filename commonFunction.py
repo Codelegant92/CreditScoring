@@ -61,6 +61,34 @@ class dataset():
         label = np.array(userProfile)[:, -1]
         return(featureMatrix, label)
 
+    def loadGermandata20(self):
+        f = open(self.file)
+        userProfile = []
+        num = 0
+        for line in f.readlines():
+            num += 1
+            singleProfile = line.split(' ')
+            if(singleProfile[-1] == '1\n'):
+                singleProfile[-1] = '1'
+            else:
+                singleProfile[-1] = '0'
+            for i in range(len(singleProfile)):
+                if(singleProfile[i][0] < '0' or singleProfile[i][0] > '9'):
+                    singleProfile[i] = singleProfile[i][1:]
+                else:
+                    singleProfile[i] = singleProfile[i]
+            singleProfile = [int(singleProfileItem) for singleProfileItem in singleProfile]
+            '''
+            try:
+                for item in singleProfile:
+                    print(float(item))
+            except ValueError, e:
+                print("error", e, "on line", num)
+            '''
+            userProfile.append(singleProfile)
+        featureMatrix = np.array(userProfile)[:, :-1]
+        label = np.array(userProfile)[:, -1]
+        return(featureMatrix, label)
     def dataForLIBSVM(self):
         m, n = self.featureMatrix.shape
         f = open('stalogGerman.txt', 'w')
@@ -71,7 +99,12 @@ class dataset():
             string += '\n'
             f.write(string)
         f.close()
-        
+
+
+def read_GermanData20(data_filePath):
+    data = dataset(data_filePath)
+    dataFeature, dataLabel = data.loadGermandata20()
+    return(dataFeature, dataLabel)
 #function: read data from given files, parameter is the file path
 #for the label, 1 represents + and 0 represents -
 def read_GermanData(data_filePath):
@@ -247,10 +280,13 @@ if __name__ == "__main__":
     dataFeature, dataLabel = read_Germandata('./Data/german/german.data-numeric')
     print(dataFeature[0,:])
     '''
-
+    '''
     dataFeature1, dataLabel1 = readAustralianData('./Data/Australia/australian.dat')
     #print(dataFeature1[689, :])
 
     a, b = crossValidation(dataFeature1[0:5, :], dataLabel1[0:5], 2)
     print(a)
     print(b)
+    '''
+    dataFeature, dataLabel = read_GermanData20('./Data/german/german.data')
+    print(list(dataLabel).count(0))
