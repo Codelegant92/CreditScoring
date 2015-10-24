@@ -268,8 +268,6 @@ class Ui_Dialog(object):
         self.pushButton_2.raise_()
         self.fileButton.raise_()
         self.filePathBrowser.raise_()
-        #self.fileDialog.raise_()
-
 
         self.retranslateUi(Dialog)
 
@@ -408,4 +406,3 @@ class Ui_Dialog(object):
         self.doubleSpinBox.setToolTip(_translate("Dialog", "本次贷款的每月分期付款占用户可支配收入的百分比", None))
         self.fileButton.setText(_translate("Dialog", "选择文件", None))
 
-#from kurlrequester import KUrlComboRequester
